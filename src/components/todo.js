@@ -36,8 +36,10 @@ export default function Todo({ item, onUpdate, onDelete}) {
     return (
       <div className="todoInfo">
         <span className="todoTitle"> {item.title} </span>
-        <button className="button" onClick={() => setIsEdit(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>
-        <button className="buttonDelete" onClick={() => onDelete(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
+        <div className="todoButtons">
+          <button className="button" onClick={() => setIsEdit(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>
+          <button className="buttonDelete" onClick={() => onDelete(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
+        </div>
       </div>
     );
   }

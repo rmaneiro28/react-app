@@ -58,7 +58,7 @@ export default function TodoApp() {
           </ul>
         </div>
       <div className="todoContainer">
-        <h1 className="title">App para escribir, editar y eliminar Notas</h1>
+        <h1 className="title">Lista de tareas</h1>
         <form className="todoCreateForm" onSubmit={handleSubmit}>
           <input onChange={handleChange} className="todoInput" placeholder="Escribe algo..." value={title} />
           <input

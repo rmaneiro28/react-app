@@ -8,10 +8,12 @@ body {
 }
 
 .area {
+   background-attachment: fixed;
+   background-position: center center;
    background: #4e54c8;
    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-   width: 100vw;
-   height: 100vh;
+   min-height: 100vh;
+   overflow: hidden;
    z-index: -100;
 }
 
@@ -20,8 +22,8 @@ body {
    top: 0;
    left: 0;
    width: 100%;
-   height: 100%;
    overflow: hidden;
+   min-height: 100vh;
 }
 
 .circles li {
@@ -31,7 +33,7 @@ body {
    width: 20px;
    height: 20px;
    background: rgba(255, 255, 255, 0.2);
-   animation: animate 25s linear infinite;
+   animation: animate 20s linear infinite;
    bottom: -150px;
 }
 
@@ -118,117 +120,160 @@ body {
    }
 
    100% {
-      transform: translateY(-1000px) rotate(720deg);
+      transform: translateY(-2000px) rotate(720deg);
       opacity: 0;
       border-radius: 50%;
    }
 }
+
 input::placeholder {
-    font-size: 14px;
-    color: rgb(255, 255, 255);
+   font-size: 14px;
+   color: rgb(255, 255, 255);
 }
+
 .todoContainer {
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 10px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position: absolute;
-    padding: 40px 80px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 500px;
-    margin: 100px auto;
+   background: rgba(255, 255, 255, 0.12);
+   border-radius: 10px;
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   margin: auto;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 80vw;
+   height: 80vh;
+   padding: 40px 80px;
    z-index: 10;
    display: flex;
-    flex-direction: column;
+   flex-direction: column;
 }
 
 .todoCreateForm {
-    display: flex;
-    gap: 5px;
+   display: flex;
+   margin-bottom: 20px;
+   gap: 5px;
 }
 
 .todoInput {
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 10px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    flex-grow: 1;
-    width: 100%;
-    color: white;
-    padding: 10px;
-    border-radius: 3px;
-    border: none;
-    background: transparent;
+   background: rgba(255, 255, 255, 0.12);
+   border-radius: 10px;
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   flex-grow: 1;
+   width: 100%;
+   color: white;
+   padding: 10px;
+   border-radius: 3px;
+   border: none;
+   background: transparent;
 }
 
 .buttonCreate {
-    border: none;
-    border-radius: 3px;
-    color: white;
-    background-color: rgb(26,76,169);
-    padding: 10px 20px;
+   border: none;
+   border-radius: 3px;
+   color: white;
+   background-color: rgb(26, 76, 169);
+   padding: 10px 20px;
 }
 
 .todosContainer {
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 10px;
-    width: 500px;
-    height: 20px;
+   position: relative;
+   display: flex;
+   justify-content: left;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin-top: 10px;
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+
 }
-i {
-    width: 20px;
-    font-size: 18px;
-    color: white;
+
+::-webkit-scrollbar {
+   width: 10px;
+   border-radius: 10px;
+   background-color: #3a3a3a05;
 }
+
+::-webkit-scrollbar-track {
+   --webkit-box-shadow: inset 0 0 6px transparent;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: rgba(255, 255, 255, 0.12);
+   border-radius: 10px;
+}
+
+svg {
+   height: 14px;
+   width: 14px;
+}
+
 .todo {
-    padding: 10px;
-    color: white;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
+   padding: 10px 10px 0 10px;
+   color: white;
+   background: rgba(255, 255, 255, 0.12);
+   border-radius: 10px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(7.5px);
+   -webkit-backdrop-filter: blur(7.5px);
+   width: 220px;
+   height: max-content;
+   max-height: 400px;
 }
 
 .todoTitle {
-   flex: 1;
-   font-size: 20px; 
+   font-size: 16px;
+   width: 100%;
+   height: 100%;
 }
 
 .todoUpdateForm,
 .todoInfo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+   gap: 5px;
 }
 
 .todoInfo {
-    background: none;
+   background: none;
+}
+
+.todoButtons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 10px -10px 0 -10px;
+   gap: 10px;
+   padding: 4px 10px;
+   background: rgba(214, 214, 214, 0.137);
+   height: 40px;
+   width: 100%;
+   transition: all ease-in-out .3s;
+   border-radius:  10px 10px 10px 10px;
 }
 .button {
-    border: none;
-    border-radius: 3px;
-    background-color: rgb(72,122,221);
-    color: white;
-    padding: 10px 20px;
+   border: none;
+   border-radius: 3px;
+   background-color: rgb(72, 122, 221);
+   color: white;
+   padding: 10px 20px;
 }
+
 .buttonDelete {
-    border: none;
-    border-radius: 3px;
-    background-color: rgb(169,26,26);
-    color: white;
-    padding: 10px 20px;
+   border: none;
+   border-radius: 3px;
+   background-color: rgb(169, 26, 26);
+   color: white;
+   padding: 10px 20px;
 }
 
 .title {
-    color: white;
-    font-size: 42px;
-    margin-bottom: 20px;
-    text-align: center;
+   color: white;
+   font-size: 42px;
+   margin-bottom: 20px;
+   text-align: center;
 }
